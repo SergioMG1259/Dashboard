@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+.flex {
+    display: flex;
+}
+.shadow {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}

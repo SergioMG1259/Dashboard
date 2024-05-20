@@ -1,0 +1,26 @@
+<div class="side-bar shadow" [ngClass]="{'collapsed':isMenuCollapsed, 'menu-open':isMenuOpen}">
+    <div class="flex logo">
+        <span class="name-logo">My Dashboard</span>
+        <button class="btn-collapse" (click)="onClickCollapseMenu()">asd</button>
+    </div>
+    <ul class="items">
+        <li class="item">
+            <a href="" class="flex">   
+                <span><i class='bx bxs-user'></i> <span class="name-item">Users</span> </span>
+            </a>            
+        </li>
+        <li class="item">
+            <a href="" class="flex">
+                <span><i class='bx bxs-objects-vertical-bottom' ></i> <span class="name-item">Graphics</span></span>
+            </a>            
+        </li>
+        <li class="item">
+            <a href="" class="flex">  
+                <span><i class='bx bx-cart-download' ></i> <span class="name-item">Car</span></span>
+            </a>            
+        </li>
+        <li class="item">
+            <button (click)="onClickOpenMenu()">cerrar</button>
+        </li>
+    </ul>
+</div>

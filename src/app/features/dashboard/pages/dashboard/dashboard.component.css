@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+}
+.router {
+    border: solid 1px green;
+    min-height: 100vh;
+    width: 100%;
+    text-align: end;
+}
+@media screen and (max-width : 450px){
+
+    /* .hidden {
+        top: 0px;
+        left: -200px;
+        max-width: 82px;
+        transition: width 0.0s ease;
+        transition: left 0.3s ease;
+    }
+    
+    .expanded {
+        left: 0px;
+        transition: left 0.3s ease;
+    } */
+}
