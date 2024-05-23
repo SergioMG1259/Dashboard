@@ -21,8 +21,8 @@ export class SideBarComponent implements OnInit {
     this.isMenuCollapsedPersistence = this.isMenuCollapsed
   }
 
-  public onClickOpenMenu() {
-    this.isMenuOpen = !this.isMenuOpen
+  public onClickCloseMenu() {
+    this.isMenuOpen = false
     this.isMenuOpenChange.emit(this.isMenuOpen)
   }
 

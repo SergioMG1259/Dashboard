@@ -1,8 +1,6 @@
 <div class="container">
     <app-side-bar class="side-bar" [ngClass]="isExpanded? 'expanded' : 'hidden'" [(isMenuOpen)]="isMenuOpen"></app-side-bar>
-
     <div class="router">
-
         <router-outlet></router-outlet>
         <button (click)="onClickOpenMenu()">asd</button>
     </div>

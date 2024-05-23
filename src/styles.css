@@ -9,9 +9,24 @@
     padding: 0;
     text-decoration: none;
 }
+:root {
+    --background-light: rgb(237, 244, 249);
+    --primary-light: rgb(246, 246, 246);
+    --icon-color-light: #8a8686;
+    --secondary-light: rgb(38, 116, 243);
+}
 .flex {
     display: flex;
 }
 .shadow {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+button {
+    outline: none;
+}
+.background-light {
+    background-color: rgb(238, 247, 255);
+}
+.component-light {
+    background-color: rgb(246, 246, 246);
 }

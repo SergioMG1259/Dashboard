@@ -1,8 +1,8 @@
 .container {
+    background-color: var(--background-light);
     display: flex;
 }
 .router {
-    border: solid 1px green;
     min-height: 100vh;
     width: 100%;
     text-align: end;

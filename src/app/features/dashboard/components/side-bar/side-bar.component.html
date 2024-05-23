@@ -1,26 +1,27 @@
-<div class="side-bar shadow" [ngClass]="{'collapsed':isMenuCollapsed, 'menu-open':isMenuOpen}">
-    <div class="flex logo">
-        <span class="name-logo">My Dashboard</span>
-        <button class="btn-collapse" (click)="onClickCollapseMenu()">asd</button>
-    </div>
-    <ul class="items">
-        <li class="item">
-            <a href="" class="flex">   
-                <span><i class='bx bxs-user'></i> <span class="name-item">Users</span> </span>
-            </a>            
-        </li>
-        <li class="item">
-            <a href="" class="flex">
-                <span><i class='bx bxs-objects-vertical-bottom' ></i> <span class="name-item">Graphics</span></span>
-            </a>            
-        </li>
-        <li class="item">
-            <a href="" class="flex">  
-                <span><i class='bx bx-cart-download' ></i> <span class="name-item">Car</span></span>
-            </a>            
-        </li>
-        <li class="item">
-            <button (click)="onClickOpenMenu()">cerrar</button>
-        </li>
-    </ul>
+<div class="back" [ngClass]="{'collapsed':isMenuCollapsed, 'menu-open':isMenuOpen}">
+    <nav class="side-bar shadow" [ngClass]="{'collapsed':isMenuCollapsed, 'menu-open':isMenuOpen}">
+        <div class="flex logo">
+            <span class="icon-logo"><img src="https://images.vexels.com/media/users/3/224241/isolated/preview/4d2aacf413b02b74c2cdb75ea41f24d3-programacion-de-diple-logo.png" alt="MarketVista Logo"></span>
+            <span class="name-logo name-item">MarketVista</span>
+            <button class="btn-collapse" (click)="onClickCollapseMenu()">asd</button>
+            <button class="btn-close-menu" (click)="onClickCloseMenu()"><i class='bx bx-x'></i></button>
+        </div>
+        <ul class="items">
+            <li class="item">
+                <a href="" class="flex active">   
+                    <span><i class='bx bxs-dashboard'></i><span class="name-item">Dashboard</span> </span>
+                </a>            
+            </li>
+            <li class="item">
+                <a href="" class="flex">
+                    <span><i class='bx bxs-store-alt' ></i><span class="name-item">Products</span></span>
+                </a>            
+            </li>
+            <li class="item">
+                <a href="" class="flex">  
+                    <span><i class='bx bxs-calendar' ></i><span class="name-item">Calendar</span></span>
+                </a>            
+            </li>
+        </ul>
+    </nav>
 </div>

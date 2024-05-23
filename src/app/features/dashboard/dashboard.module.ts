@@ -13,7 +13,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
   ]
 })
 export class DashboardModule { }
