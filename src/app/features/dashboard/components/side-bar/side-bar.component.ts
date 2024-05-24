@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Subscription, debounceTime, fromEvent, map } from 'rxjs';
+import { MenuService } from '../../services/menu.service';
 
 @Component({
   selector: 'app-side-bar',
@@ -8,13 +9,13 @@ import { Subscription, debounceTime, fromEvent, map } from 'rxjs';
 })
 export class SideBarComponent implements OnInit {
 
-  @Input() isMenuOpen:boolean = false
-  @Output() isMenuOpenChange:EventEmitter<boolean> = new EventEmitter<boolean>()
+  isMenuOpen:boolean = false
   isMenuCollapsed:boolean = false
   isMenuCollapsedPersistence:boolean = this.isMenuCollapsed
   private resizeSubscription!: Subscription;
+  private menuServiceSubscription!: Subscription;
 
-  constructor() { }
+  constructor(private menuService:MenuService) { }
 
   public onClickCollapseMenu() {
     this.isMenuCollapsed = !this.isMenuCollapsed
@@ -22,8 +23,7 @@ export class SideBarComponent implements OnInit {
   }
 
   public onClickCloseMenu() {
-    this.isMenuOpen = false
-    this.isMenuOpenChange.emit(this.isMenuOpen)
+    this.menuService.closeMenu()
   }
 
   ngOnInit(): void {
@@ -38,15 +38,20 @@ export class SideBarComponent implements OnInit {
           } else {
             this.isMenuCollapsed = this.isMenuCollapsedPersistence
             this.isMenuOpen = false
-            this.isMenuOpenChange.emit(this.isMenuOpen)
           }
         }
       )
+    this.menuServiceSubscription = this.menuService.menuObservable$.subscribe(
+      isMenuOpen => this.isMenuOpen = isMenuOpen
+    )
   }
 
   ngOnDestroy():void {
     if (this.resizeSubscription) {
-      this.resizeSubscription.unsubscribe();
+      this.resizeSubscription.unsubscribe()
+    }
+    if(this.menuServiceSubscription) {
+      this.menuServiceSubscription.unsubscribe()
     }
   }
 

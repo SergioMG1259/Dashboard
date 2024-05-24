@@ -1,14 +1,21 @@
-.container {
+.background {
     background-color: var(--background-light);
-    display: flex;
+    column-gap: 30px;
 }
-.router {
+.container {
+    border: solid 1px green;
+    flex-direction: column;
     min-height: 100vh;
+    row-gap: 10px;
     width: 100%;
+}
+.router {   
     text-align: end;
 }
 @media screen and (max-width : 450px){
-
+    .background {
+        column-gap: 0px;
+    }
     /* .hidden {
         top: 0px;
         left: -200px;

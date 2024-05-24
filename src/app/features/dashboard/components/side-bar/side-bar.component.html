@@ -1,9 +1,11 @@
-<div class="back" [ngClass]="{'collapsed':isMenuCollapsed, 'menu-open':isMenuOpen}">
-    <nav class="side-bar shadow" [ngClass]="{'collapsed':isMenuCollapsed, 'menu-open':isMenuOpen}">
+<aside class="back" [ngClass]="{'collapsed':isMenuCollapsed, 'menu-open':isMenuOpen}">
+    <nav class="side-bar shadow" [ngClass]="{'menu-open':isMenuOpen}">
         <div class="flex logo">
             <span class="icon-logo"><img src="https://images.vexels.com/media/users/3/224241/isolated/preview/4d2aacf413b02b74c2cdb75ea41f24d3-programacion-de-diple-logo.png" alt="MarketVista Logo"></span>
             <span class="name-logo name-item">MarketVista</span>
-            <button class="btn-collapse" (click)="onClickCollapseMenu()">asd</button>
+            <button class="btn-collapse" (click)="onClickCollapseMenu()">
+                <i class='bx' [ngClass]="isMenuCollapsed? 'bx-chevron-right':'bx-chevron-left'"></i>
+            </button>
             <button class="btn-close-menu" (click)="onClickCloseMenu()"><i class='bx bx-x'></i></button>
         </div>
         <ul class="items">
@@ -24,4 +26,4 @@
             </li>
         </ul>
     </nav>
-</div>
+</aside>

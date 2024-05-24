@@ -1,9 +1,13 @@
+.back {
+    transition: all 0.3s ease;
+    width: 200px;
+}
 .side-bar {
     background-color: var(--primary-light);
     border-radius: 8px;
     min-height: 100vh;
-    transition: width 0.3s ease;
-    width: 200px;
+    /* transition: all 0.3s ease; */
+    width: 100%;
 }
 .logo {
     align-items: center;
@@ -12,13 +16,17 @@
     width: 100%;
 }
 .btn-collapse {
-    background-color: rgb(47, 18, 63);
+    background-color: var(--secondary-light);
+    border: none;
     border-radius: 50%;
-    content: '';
-    height: 30px;
+    color: white;
+    font-size: 20px;
+    height: 26px;
+    line-height: 30px;
     position: absolute;
-    width: 30px;
-    right: -15px;
+    right: -13px;
+    text-align: center;
+    width: 26px;
 }
 .btn-close-menu {
     background-color: var(--primary-light);
@@ -85,9 +93,12 @@
     /* :host {
         max-width: 82px;
     } */
-    .side-bar {
+    .back {
         width: 82px;
     }
+    /* .side-bar {
+        width: 82px;
+    } */
     .btn-collapse {
         display: none;
     }
@@ -102,6 +113,10 @@
     }
 }
 @media screen and (max-width : 450px){
+    .back {
+        width: 0px;
+        transition: all 0.0s ease;
+    }
     .side-bar {
         left: -200px;
         position: fixed;
