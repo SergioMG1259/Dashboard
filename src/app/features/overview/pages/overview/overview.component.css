@@ -1,0 +1,33 @@
+.container-overview {
+    column-gap: 20px;
+    flex-wrap: wrap;
+}
+.left {
+    border: solid 2px blue;
+    flex-basis: 0;
+    flex-grow: 999;
+    min-width: 60%;
+    display: grid;
+    row-gap: 20px;
+}
+.metrics {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    grid-auto-flow:  unset;
+}
+.right {
+    border: solid 2px red;
+    flex-basis: 270px;
+    flex-grow: 1;
+}
+.graphics {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+.card {
+    background-color: aqua;
+    grid-column: span 2;
+    height: 10px;
+}

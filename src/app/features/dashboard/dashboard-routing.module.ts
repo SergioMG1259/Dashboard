@@ -5,7 +5,13 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 const routes: Routes = [
   {
     path:'',
-    component:DashboardComponent
+    component:DashboardComponent,
+    children: [
+      {
+        path:'overview',
+        loadChildren: () => import('../overview/overview.module').then(m => m.OverviewModule)
+      }
+    ]
   }
 ];
 

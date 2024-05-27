@@ -3,7 +3,7 @@ header {
     background-color: var(--primary-light);
     height: 60px;
     justify-content: flex-end;
-    padding: 0px 15px;
+    padding: 0px 20px;
 }
 .btn-menu {
     background-color: transparent;

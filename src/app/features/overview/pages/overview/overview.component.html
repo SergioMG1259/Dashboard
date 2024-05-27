@@ -1,0 +1,21 @@
+<section class="flex container-overview">
+    <div class="left">
+        <div class="metrics">
+            <ng-container *ngFor="let metric of metricCards">
+                <app-metric-card [metric]="metric" ></app-metric-card>
+            </ng-container>
+        </div>
+        <div class="graphics">
+            <div class="card">
+
+            </div>
+            <div class="card">
+    
+            </div>
+        </div>
+
+    </div>
+    <div class="right">
+        
+    </div>
+</section>

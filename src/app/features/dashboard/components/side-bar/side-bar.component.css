@@ -45,6 +45,9 @@
 .name-logo {
     font-size: 20px;
 }
+.items {
+    margin-top: 20px;
+}
 .item {
     padding: 0px 18px 0px 18px;
     width: 100%;
@@ -56,7 +59,6 @@
     font-size: 18px;
     gap: 16px;
     height: 50px;
-    
     padding: 0px 14px 0px 14px;
     white-space: nowrap;
 }
@@ -87,7 +89,7 @@
     display: none;
 }
 .collapsed .item a:hover i {
-    margin-left: 6px;
+    margin-left: 4px;
 }
 @media screen and (max-width : 800px){
     /* :host {
@@ -109,7 +111,7 @@
         display: none;
     }
     .item a:hover i {
-        margin-left: 6px;
+        margin-left: 4px;
     }
 }
 @media screen and (max-width : 450px){
