@@ -1,0 +1,16 @@
+.header-card-component {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.card-component-title {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.card-component-subtitle {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 9px;
+}

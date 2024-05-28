@@ -26,8 +26,11 @@
     gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
 }
-.card {
-    background-color: aqua;
+.graphic-card {
     grid-column: span 2;
-    height: 10px;
+}
+.graphic {
+    border: solid 1px brown;
+    height: 200px;
+    width: 100%;
 }

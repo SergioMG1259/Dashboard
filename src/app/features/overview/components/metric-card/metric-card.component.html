@@ -7,8 +7,8 @@
         <span>Vs last week</span>
     </div>
     <div class="flex icon-container">
-        <i class='bx bx-package'></i>
+        <i class='bx' [ngClass]="iconsDictionary[metric.category]"></i>
     </div>
-    <h3 class="category">Total {{metric.category}}</h3>
-    <p class="amount">{{metric.amount}}</p>
+    <h2 class="category">Total {{metric.category}}</h2>
+    <p class="amount"> {{metric.category == 'revenues'? 'S/.' : ''}} {{metric.amount}}</p>
 </div>

@@ -7,7 +7,14 @@ import { MetricCard } from '../../models/metricCard';
   styleUrls: ['./metric-card.component.css']
 })
 export class MetricCardComponent implements OnInit {
-
+  
+  iconsDictionary: Record<string, string> = {
+    products: "bx-package",
+    sales: "bx-purchase-tag",
+    customers: "bx-group",
+    revenues: "bx-money"
+  };
+  
   @Input() metric!:MetricCard
 
   constructor() { }

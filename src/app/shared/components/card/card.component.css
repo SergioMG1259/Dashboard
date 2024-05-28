@@ -1,0 +1,5 @@
+.card-component {
+    background-color: var(--primary-light);
+    border-radius: 8px;
+    padding: 10px;
+}

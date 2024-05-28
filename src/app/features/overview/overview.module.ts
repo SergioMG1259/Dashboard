@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { OverviewRoutingModule } from './overview-routing.module';
 import { OverviewComponent } from './pages/overview/overview.component';
 import { MetricCardComponent } from './components/metric-card/metric-card.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { MetricCardComponent } from './components/metric-card/metric-card.compon
   ],
   imports: [
     CommonModule,
-    OverviewRoutingModule
+    OverviewRoutingModule,
+    SharedModule
   ]
 })
 export class OverviewModule { }
