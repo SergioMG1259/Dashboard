@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http'
 import { CoreModule } from './core/core.module';
 import { LoginComponent } from './auth/pages/login/login.component';
 
+import { OverlayModule } from '@angular/cdk/overlay'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,8 @@ import { LoginComponent } from './auth/pages/login/login.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CoreModule
+    CoreModule,
+    OverlayModule
   ],
   providers: [],
   bootstrap: [AppComponent]

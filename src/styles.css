@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import '@angular/cdk/overlay-prebuilt.css';
 * {
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
@@ -14,8 +15,11 @@
     --primary-light: rgb(246, 246, 246);
     --icon-color-light: #7f7f7f;
     --secondary-light: rgb(38, 116, 243);
+    --text-1-light: rgb(18, 18, 18);
     --text-2-light: #616161;
-    --text-3-light: rgb(246, 246, 246);
+    --text-3-light: rgb(243, 243, 243);
+    --hover-primary-light: rgb(220, 220, 220);
+    --active-primary-light: rgb(208, 208, 208);
 }
 .flex {
     display: flex;

@@ -1,0 +1,29 @@
+<div cdk-overlay-origin class="flex dropdown-content-component" (click)="toggle()"
+   #origin="cdkOverlayOrigin" #trigger>
+   <span class="dropdown-component-placeholder" *ngIf="placeholder && !selectedOptionText">{{placeholder}}</span>
+   <span class="dropdown-component-text" *ngIf="selectedOptionText">{{selectedOptionText}}</span>
+   <span class="icon-dropdown">
+        <i class='bx bx-chevron-down'></i>
+   </span>
+</div>
+
+<ng-template
+  cdkConnectedOverlay
+  cdkConnectedOverlayHasBackdrop
+  cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"
+  [cdkConnectedOverlayOrigin]="origin"
+  [cdkConnectedOverlayScrollStrategy]="scrollStrategy"
+  [cdkConnectedOverlayOpen]="panelOpen"
+  [cdkConnectedOverlayPositions]="_positions"
+  [cdkConnectedOverlayWidth]="widthOptionsList"
+  (backdropClick)="close()"
+  (detach)="close()"
+>
+   <!-- detach se dispara cuando el overlay se cierra, incluyendo cuando se hace scroll -->
+  <div class="options-container-dropdown-component shadow" (keydown)="_handleKeydown($event)">
+      <!-- <button>Item 1</button>
+      <button>Item 2</button>
+      <button>Item 3</button> -->
+      <ng-content></ng-content>
+  </div>
+</ng-template>

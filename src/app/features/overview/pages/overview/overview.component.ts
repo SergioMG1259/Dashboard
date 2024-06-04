@@ -7,7 +7,7 @@ import { MetricCard } from '../../models/metricCard';
   styleUrls: ['./overview.component.css']
 })
 export class OverviewComponent implements OnInit {
-
+  aux:number = 3
   metricCards: MetricCard[] = [
     {
       category: "products",

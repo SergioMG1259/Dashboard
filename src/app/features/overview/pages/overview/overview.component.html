@@ -8,7 +8,12 @@
         <div class="graphics">
             <app-card class="graphic-card">
                <app-card-header>
-                    <h2 class="card-component-title">Titulo</h2>
+                    <h2 class="card-component-title">Revenues performance</h2>
+                    <app-dropdown placeholder="placeholder" [(value)]="aux" class="select" >
+                        <app-dropdown-option [value]=1>weekly</app-dropdown-option>
+                        <app-dropdown-option [value]=2>monthly</app-dropdown-option>
+                        <app-dropdown-option [value]=3>yearly</app-dropdown-option>
+                    </app-dropdown>
                     <!-- <p class="card-component-subtitle">SubTitulo</p> -->
                </app-card-header>
                <div class="graphic">
@@ -21,7 +26,7 @@
                      <h2 class="card-component-title">Titulo</h2>
                 </app-card-header>
                 <div class="graphic">
- 
+                    
                 </div>
             </app-card>
 

@@ -44,6 +44,7 @@ header i {
     line-height: 1;
 }
 .user-name {
+    color: var(--text-1-light);
     font-size: 18px;
 }
 .user-image img {
