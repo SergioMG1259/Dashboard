@@ -1,5 +1,7 @@
 .card-component {
     background-color: var(--primary-light);
     border-radius: 8px;
+    display: inline-block;
+    /* flex-direction: column; */
     padding: 10px;
 }

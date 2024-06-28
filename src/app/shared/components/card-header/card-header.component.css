@@ -11,6 +11,7 @@
     margin-bottom: 6px;
 }
 .card-component-subtitle {
+    color: var(--text-2-light);
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 8px;

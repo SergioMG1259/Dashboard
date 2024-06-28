@@ -13,12 +13,12 @@
     line-height: 20px;
 }
 .trending i {
-    color: var(--text-3-light);
+    color: var(--primary-light);
     font-size: 20px;
     margin-right: 5px;
 }
 .trending span {
-    color: var(--text-3-light);
+    color: var(--primary-light);
     font-size: 14px;
 }
 .icon-container {
@@ -31,13 +31,13 @@
     width: 46px;
 }
 .category {
-    color: var(--text-3-light);
+    color: var(--primary-light);
     font-size: 16px;
     font-weight: 500;
     margin: 15px 0px 0px 5px;
 }
 .amount {
-    color: var(--text-3-light);
+    color: var(--primary-light);
     font-size: 18px;
     font-weight: 700;
     margin: 8px 0px 0px 5px

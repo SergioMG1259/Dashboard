@@ -15,6 +15,8 @@
     --primary-light: rgb(246, 246, 246);
     --icon-color-light: #7f7f7f;
     --secondary-light: rgb(38, 116, 243);
+    --secondary-light-hover: rgb(39, 109, 223);
+    --secondary-light-active: rgb(34, 98, 201);
     --text-1-light: rgb(18, 18, 18);
     --text-2-light: #616161;
     --text-3-light: rgb(243, 243, 243);
@@ -28,6 +30,7 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 button {
+    cursor: pointer;
     outline: none;
 }
 .background-light {
@@ -35,4 +38,18 @@ button {
 }
 .component-light {
     background-color: rgb(246, 246, 246);
+}
+.primary-button {
+    background-color: var(--secondary-light);
+    border: solid 1px transparent;
+    border-radius: 8px;
+    color: var(--primary-light);
+    padding: 8px 15px;
+    transition: 0.3s ease;
+}
+.primary-button:hover {
+    background-color: var(--secondary-light-hover);
+}
+.primary-button:active {
+    background-color: var(--secondary-light-active);
 }
