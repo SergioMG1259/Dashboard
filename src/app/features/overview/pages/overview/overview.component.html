@@ -26,10 +26,39 @@
                      <h2 class="card-component-title">Titulo</h2>
                 </app-card-header>
                 <div class="graphic">
-                    
+
                 </div>
             </app-card>
         </div>
+        <app-card class="card-table">
+            <app-card-header>
+                <h2 class="card-component-title">Titulo</h2>
+            </app-card-header>
+
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr class="table-header">
+                            <th>Product Name</th>
+                            <th>Seller</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Revenue</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of [1,2,3,4,5]">
+                            <td>Alfreds Futterkiste</td>
+                            <td>Maria Anders</td>
+                            <td>S/. 54</td>
+                            <td>5</td>
+                            <td>S/. 270</td>
+                        </tr>
+                    </tbody>
+                </table>
+           </div>
+           
+        </app-card>
     </div>
     
     <div class="right">
@@ -44,16 +73,17 @@
                 <p class="top-seller-name">Mary Smith</p>
                 <div class="flex top-saller-info">
                     <div class="top-saller-data">
-                        <p class="top-saller-category">Sale</p>
-                        <p class="top-saller-amount">{{'S/. ' + '985'}}</p>
+                        <p class="top-saller-category">Sales</p>
+                        <p class="top-saller-amount">52</p>
                     </div>
                     
                     <span class="separator"></span>
-
+                    
                     <div class="top-saller-data">
-                        <p class="top-saller-category">Products</p>
-                        <p class="top-saller-amount">52</p>
+                        <p class="top-saller-category">Revenue</p>
+                        <p class="top-saller-amount">{{'S/. ' + '985'}}</p>
                     </div>
+                    
                 </div>
                 <button class="primary-button">View Details</button>
             </div>

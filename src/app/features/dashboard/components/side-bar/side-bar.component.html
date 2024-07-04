@@ -1,7 +1,7 @@
 <aside class="back" [ngClass]="{'collapsed':isMenuCollapsed, 'menu-open':isMenuOpen}">
     <nav class="side-bar shadow" [ngClass]="{'menu-open':isMenuOpen}">
         <div class="flex logo">
-            <span class="icon-logo"><img src="https://images.vexels.com/media/users/3/224241/isolated/preview/4d2aacf413b02b74c2cdb75ea41f24d3-programacion-de-diple-logo.png" alt="MarketVista Logo"></span>
+            <img src="https://images.vexels.com/media/users/3/224241/isolated/preview/4d2aacf413b02b74c2cdb75ea41f24d3-programacion-de-diple-logo.png" alt="MarketVista Logo">
             <span class="name-logo name-item">MarketVista</span>
             <button class="btn-collapse" (click)="onClickCollapseMenu()">
                 <i class='bx' [ngClass]="isMenuCollapsed? 'bx-chevron-right':'bx-chevron-left'"></i>
@@ -10,8 +10,8 @@
         </div>
         <ul class="items">
             <li class="item">
-                <a href="" class="flex active">   
-                    <span><i class='bx bxs-dashboard'></i><span class="name-item">Overview</span> </span>
+                <a href="" class="flex" [routerLink]="['/overview']" routerLinkActive="active">   
+                    <span><i class='bx bxs-dashboard'></i><span class="name-item">Overview</span></span>
                 </a>            
             </li>
             <li class="item">

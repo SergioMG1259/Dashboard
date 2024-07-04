@@ -1,5 +1,6 @@
 .container-overview {
     column-gap: 20px;
+    row-gap: 20px;
     flex-wrap: wrap;
 }
 .left {
@@ -37,7 +38,6 @@
 .select {
     width: 90px;
 }
-
 /*****TOP SELLER*****/
 .top-seller-container {
     width: 100%;
@@ -84,4 +84,38 @@
 }
 .top-saller-amount {
     font-weight: 600;
+}
+/*****TABLE*****/
+.card-table {
+    overflow: hidden;
+    overflow-x: auto;
+}
+.table {
+    border-collapse: collapse;
+    font-size: 14px;
+    white-space: nowrap;
+    width: 100%;
+}
+.table-header {
+    background-color: var(--background-light);
+    border-radius: 8px;
+}
+th,td {
+    min-width: 80px;
+}
+.table-header th{
+    color: var(--text-2-light);
+    font-weight: 500;
+    /* min-width: 90px; */
+    padding: 10px 8px;
+    text-align: start;
+}
+th:first-child {
+  border-radius: 8px 0 0 8px;
+}
+th:last-child {
+  border-radius: 0 8px 8px 0;
+}
+td {
+    padding: 10px 8px;
 }

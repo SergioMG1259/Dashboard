@@ -1,11 +1,16 @@
+:host {
+    min-height: 100vh;
+}
 .back {
     transition: all 0.3s ease;
     width: 200px;
+    display: flex;
+    height: 100%;
 }
 .side-bar {
     background-color: var(--primary-light);
     border-radius: 8px;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     /* transition: all 0.3s ease; */
     width: 100%;
 }
@@ -34,12 +39,10 @@
     display: none;
     font-size: 20px;
 }
-.icon-logo {
+img{
+    height: 30px;
     margin-left: 26px;
     margin-right: 5px;
-}
-.icon-logo img{
-    height: 30px;
     width: 30px;
 }
 .name-logo {
@@ -122,13 +125,13 @@
     .side-bar {
         left: -200px;
         position: fixed;
-        /* min-height: 100vh; */
+        height: 100vh;
         transition: width 0.0s ease;
         transition: left 0.3s ease;
         width: 200px;
         z-index: 10;
     }
-    .menu-open {
+    .side-bar.menu-open {
         left: 0px;
     }
     .menu-open.back {
@@ -137,6 +140,7 @@
         position: fixed;
         width: 100vw;
         z-index: 3;
+        touch-action: none;
     }
     .menu-open .logo .btn-close-menu  {
         border-radius: 50%;
