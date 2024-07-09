@@ -4,7 +4,6 @@
     flex-wrap: wrap;
 }
 .left {
-    border: solid 2px blue;
     flex-basis: 0;
     flex-grow: 999;
     min-width: 60%;
@@ -18,7 +17,6 @@
     grid-auto-flow:  unset;
 }
 .right {
-    border: solid 2px red;
     flex-basis: 270px;
     flex-grow: 1;
 }

@@ -10,17 +10,17 @@
         </div>
         <ul class="items">
             <li class="item">
-                <a href="" class="flex" [routerLink]="['/overview']" routerLinkActive="active">   
+                <a href="" class="flex" [routerLink]="['/overview']" routerLinkActive="active" (click)="onClickCloseMenu()">   
                     <span><i class='bx bxs-dashboard'></i><span class="name-item">Overview</span></span>
                 </a>            
             </li>
             <li class="item">
-                <a href="" class="flex">
+                <a href="" class="flex" [routerLink]="['/products']" routerLinkActive="active" (click)="onClickCloseMenu()">
                     <span><i class='bx bxs-store-alt' ></i><span class="name-item">Products</span></span>
                 </a>            
             </li>
             <li class="item">
-                <a href="" class="flex">  
+                <a href="" class="flex" (click)="onClickCloseMenu()">  
                     <span><i class='bx bxs-calendar' ></i><span class="name-item">Calendar</span></span>
                 </a>            
             </li>

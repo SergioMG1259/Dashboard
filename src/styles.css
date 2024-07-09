@@ -20,8 +20,11 @@
     --text-1-light: rgb(18, 18, 18);
     --text-2-light: #616161;
     --text-3-light: rgb(243, 243, 243);
+    --third-light: rgb(212, 212, 212);
     --hover-primary-light: rgb(220, 220, 220);
     --active-primary-light: rgb(208, 208, 208);
+    --hover-secondary-light: #f0f0f0;
+    --active-secondary-light: rgb(226, 226, 226)
 }
 .flex {
     display: flex;
@@ -30,8 +33,15 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 button {
+    align-items: center;
     cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
     outline: none;
+}
+.button-icon i {
+    margin-right: 8px;
+    line-height: 1;
 }
 .background-light {
     background-color: rgb(238, 247, 255);
@@ -39,11 +49,13 @@ button {
 .component-light {
     background-color: rgb(246, 246, 246);
 }
+
 .primary-button {
     background-color: var(--secondary-light);
-    border: solid 2px transparent;
+    border: solid 1px transparent;
     border-radius: 8px;
     color: var(--primary-light);
+    font-size: 14px;
     padding: 8px 15px;
     transition: 0.3s ease;
 }
@@ -54,7 +66,48 @@ button {
     background-color: var(--secondary-light-active);
 }
 .primary-button:focus-visible {
-    border: solid 2px var(--primary-light);
-    outline: solid 1px var(--secondary-light);
+    border: 1px double white;
+    outline: 2px solid var(--secondary-light);
+    transition: none;
+}
+
+.secondary-button {
+    background-color: var(--primary-light);
+    border: solid 1px var(--icon-color-light);
+    border-radius: 8px;
+    color: var(--icon-color-light);
+    font-size: 14px;
+    padding: 8px 15px;
+    transition: 0.3s ease;
+}
+.secondary-button:hover {
+    background-color: var(--hover-secondary-light);
+}
+.secondary-button:active {
+    background-color: var(--active-secondary-light);
+}
+.secondary-button:focus-visible {
+    border: solid 1px var(--primary-light);
+    outline: 2px solid var(--secondary-light);
+    transition: none;
     /* background-color: var(--secondary-light-active); */
+}
+
+
+.primary-input {
+    background-color: var(--primary-light);
+    border: solid 1px var(--icon-color-light);
+    border-radius: 8px;
+    color: var(--text-1-light);
+    font-size: 14px;
+    outline: none;
+    padding: 8px 15px;
+}
+.primary-input::placeholder {
+    color: var(--icon-color-light);
+}
+.primary-input:focus {
+    /* border: solid 1px var(--secondary-light); */
+    border: solid 1px var(--primary-light);
+    outline: 2px solid var(--secondary-light);
 }

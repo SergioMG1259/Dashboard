@@ -1,12 +1,12 @@
 .dropdown-component {
-    border: solid 1px rgb(212, 212, 212);
+    border: solid 1px var(--icon-color-light);
     border-radius: 8px;
     display: inline-block;
     width: 100%;
 }
 .dropdown-component:focus {
     border: solid 1px transparent;
-    outline: var(--secondary-light) solid 1px;
+    outline: var(--secondary-light) solid 2px;
 }
 .dropdown-content-component {
     align-items: center;
@@ -28,7 +28,8 @@
     text-overflow: ellipsis;
 }
 .dropdown-component-placeholder {
-    color:rgb(131, 131, 131);
+    /* color:rgb(131, 131, 131); */
+    color: var(--icon-color-light);
 }
 /* .dropdown-content-component span {
     line-height: 1;
