@@ -1,4 +1,4 @@
-import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChildren, ElementRef, EventEmitter, Input, NgZone, OnInit, Output, QueryList, ViewChild } from '@angular/core';
+import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChildren, ElementRef, EventEmitter, HostBinding, Input, NgZone, OnInit, Output, QueryList, ViewChild } from '@angular/core';
 import {ConnectedPosition, ScrollStrategyOptions, ViewportRuler} from '@angular/cdk/overlay'
 import {ViewEncapsulation} from '@angular/core';
 import { Observable, Subject, defer, merge, startWith, switchMap, take, takeUntil } from 'rxjs';
@@ -11,6 +11,7 @@ import { DropdownOptionComponent, OptionChange } from '../dropdown-option/dropdo
   encapsulation: ViewEncapsulation.None,
   host: {
     'class': 'dropdown-component',
+    '[class.dropdown-component]': 'isChanged',
     '[attr.tabindex]': '0',
     '(keydown)':"_handleKeydown($event)"
   },
@@ -20,6 +21,7 @@ export class DropdownComponent implements OnInit,AfterContentInit {
   @ContentChildren(DropdownOptionComponent) options?:QueryList<DropdownOptionComponent>
   @ViewChild('trigger') trigger!: ElementRef
   @Input() placeholder:string = ''
+  @Input() type: string = 'select'
   @Input() value:any
   @Output() valueChange:EventEmitter<any> = new EventEmitter<any>()
 
@@ -27,23 +29,50 @@ export class DropdownComponent implements OnInit,AfterContentInit {
   private _selectedOption:DropdownOptionComponent|null = null
   selectedOptionText:string|null = null
   protected readonly destroy = new Subject<void>()
-  widthOptionsList:number = 0
+  widthOptionsList:number = 80
   focusedOptionIndex:number = 0
 
-  _positions: ConnectedPosition[]  = [
-    {
-      originX: 'start',
-      originY: 'bottom',
-      overlayX: 'start',
-      overlayY: 'top',
-    },
-    {
-      originX: 'start',
-      originY: 'bottom',
-      overlayX: 'start',
-      overlayY: 'bottom',
-    },
-  ]
+  // _positions: ConnectedPosition[]  = [
+  //   {
+  //     originX: 'start',
+  //     originY: 'bottom',
+  //     overlayX: 'start',
+  //     overlayY: 'top',
+  //   },
+  //   {
+  //     originX: 'start',
+  //     originY: 'bottom',
+  //     overlayX: 'start',
+  //     overlayY: 'bottom',
+  //   },
+  // ]
+  get _positions(): ConnectedPosition[] {
+    let positions: ConnectedPosition[] = [
+      {
+        originX: 'start',
+        originY: 'bottom',
+        overlayX: 'start',
+        overlayY: 'top',
+      },
+      {
+        originX: 'start',
+        originY: 'bottom',
+        overlayX: 'start',
+        overlayY: 'bottom',
+      }
+    ]
+
+    if (this.type != 'select'){
+      positions[0].originX = 'end'
+      positions[0].overlayX = 'end'
+    }
+
+    return positions
+  }
+
+  @HostBinding("class") get hostClass(): string {
+    return this.type == 'select' ? "border" : "";
+  }
 
   readonly optionSelectionChanges: Observable<OptionChange> = defer(() => {
     const options = this.options;
@@ -69,7 +98,8 @@ export class DropdownComponent implements OnInit,AfterContentInit {
 
   open() {
     this._isOpen = true
-    this.widthOptionsList = this.trigger.nativeElement.getBoundingClientRect().width
+    if (this.type == 'select')
+      this.widthOptionsList = this.trigger.nativeElement.getBoundingClientRect().width
     this.focusedOptionIndex = this.findFocus()//encuentra el indice del elemento seleccionado y le da el foco
     this.options?.get(this.focusedOptionIndex)!.setFocus(true)
     this.changeDetectorRef.markForCheck()
@@ -169,7 +199,8 @@ export class DropdownComponent implements OnInit,AfterContentInit {
     .pipe(takeUntil(this.destroy))
     .subscribe(() => {
       if (this._isOpen) {
-        this.widthOptionsList = this.trigger.nativeElement.getBoundingClientRect().width
+        if (this.type == 'select')
+          this.widthOptionsList = this.trigger.nativeElement.getBoundingClientRect().width
         this.changeDetectorRef.markForCheck()
       }
     });

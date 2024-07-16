@@ -16,6 +16,15 @@
 .search-button {
     border-radius: 0px 8px 8px 0px;
 }
+/*****PRODUCTS*****/
+ .products-container {
+    border: solid 1px red;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(245px,1fr));
+    margin-top: 20px;
+    width: 100%;
+}
 @media screen and (max-width : 450px){
     .top {
         flex-wrap: wrap;

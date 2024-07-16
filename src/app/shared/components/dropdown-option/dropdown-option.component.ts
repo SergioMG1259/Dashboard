@@ -23,6 +23,7 @@ export class DropdownOptionComponent<T = any> implements OnInit {
   private _disabled = false
 
   @Input() value?: T
+  @Input() type:string = 'select'
 
   @Output() readonly selectionEmit = new EventEmitter<OptionChange<T>>()
 
@@ -45,11 +46,12 @@ export class DropdownOptionComponent<T = any> implements OnInit {
   }
 
   select() {
-    if(!this._selected) {
+    if(!this._selected && this.type == 'select') {
       this._selected = true
       this._focus = true
-      this.selectionEmit.emit(new OptionChange<T>(this))
+      // this.selectionEmit.emit(new OptionChange<T>(this))
     }
+    this.selectionEmit.emit(new OptionChange<T>(this))
   }
 
   deselect() {

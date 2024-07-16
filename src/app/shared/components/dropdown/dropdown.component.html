@@ -1,10 +1,15 @@
-<div cdk-overlay-origin class="flex dropdown-content-component" (click)="toggle()"
+<div cdk-overlay-origin class="flex" (click)="toggle()" [ngClass]="this.type == 'select'? 'dropdown-content-component' : 'dot-content-component'"
    #origin="cdkOverlayOrigin" #trigger>
-   <span class="dropdown-component-placeholder" *ngIf="placeholder && !selectedOptionText">{{placeholder}}</span>
-   <span class="dropdown-component-text" *ngIf="selectedOptionText">{{selectedOptionText}}</span>
-   <span class="icon-dropdown">
+   <ng-container *ngIf="this.type == 'select'">
+      <span class="dropdown-component-placeholder" *ngIf="placeholder && !selectedOptionText">{{placeholder}}</span>
+      <span class="dropdown-component-text" *ngIf="selectedOptionText">{{selectedOptionText}}</span>
+      <span class="icon-dropdown flex">
         <i class='bx bx-chevron-down'></i>
-   </span>
+      </span>
+   </ng-container>
+   <ng-container *ngIf="this.type == 'dot'">
+      <i class='bx bx-dots-vertical-rounded'></i>
+   </ng-container>
 </div>
 
 <ng-template
