@@ -4,11 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { LoginComponent } from './auth/pages/login/login.component';
 
-import { OverlayModule } from '@angular/cdk/overlay'
+import { OverlayModule } from '@angular/cdk/overlay';
+import { DialogModule } from '@angular/cdk/dialog';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { OverlayModule } from '@angular/cdk/overlay'
     AppRoutingModule,
     HttpClientModule,
     CoreModule,
-    OverlayModule
+    OverlayModule,
+    DialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

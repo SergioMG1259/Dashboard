@@ -32,20 +32,6 @@ export class DropdownComponent implements OnInit,AfterContentInit {
   widthOptionsList:number = 80
   focusedOptionIndex:number = 0
 
-  // _positions: ConnectedPosition[]  = [
-  //   {
-  //     originX: 'start',
-  //     originY: 'bottom',
-  //     overlayX: 'start',
-  //     overlayY: 'top',
-  //   },
-  //   {
-  //     originX: 'start',
-  //     originY: 'bottom',
-  //     overlayX: 'start',
-  //     overlayY: 'bottom',
-  //   },
-  // ]
   get _positions(): ConnectedPosition[] {
     let positions: ConnectedPosition[] = [
       {

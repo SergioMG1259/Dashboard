@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ProductEditable } from '../../models/ProductEditable';
+import { getColorHex } from '../../models/Color';
 
 @Component({
   selector: 'app-card-product-editable',
@@ -6,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-product-editable.component.css']
 })
 export class CardProductEditableComponent implements OnInit {
+
+  @Input() product!:ProductEditable
+  getColorHex = getColorHex
 
   constructor() { }
 

@@ -111,3 +111,13 @@ button {
     border: solid 1px var(--primary-light);
     outline: 2px solid var(--secondary-light);
 }
+
+/* .cdk-overlay-dark-backdrop {
+} */
+.dialog-bg {
+    background-color: #282828b0;
+}
+/* .custom-modalbox {
+    background-color: aqua;
+    padding: 10px;
+} */

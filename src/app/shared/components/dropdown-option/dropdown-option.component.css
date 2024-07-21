@@ -1,5 +1,6 @@
 .dropdown-option-component {
     align-items: center;
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     max-width: 100%;

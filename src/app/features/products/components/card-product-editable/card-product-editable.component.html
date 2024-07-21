@@ -1,7 +1,7 @@
 <app-card class="card">
     <app-card-header>
-        <h2 class="card-component-title">Classic T-shirt</h2>
-        <h3 class="card-component-subtitle">T-shirt</h3>
+        <h2 class="card-component-title">{{this.product.name}}</h2>
+        <h3 class="card-component-subtitle">{{this.product.cateogry}}</h3>
         <!-- <button class="button-dot"><i class='bx bx-dots-vertical-rounded'></i></button> -->
         <app-dropdown placeholder="placeholder" type="dot">
             <app-dropdown-option type="dot">weekly</app-dropdown-option>
@@ -11,32 +11,33 @@
     </app-card-header>
 
     <div class="product-image">
-        <div class="discount">-17%</div>
-        <img src="https://i.pinimg.com/originals/f7/1c/5c/f71c5c1e89dbb27a7e840b6fb60932eb.png" alt="t-shirt">
+        <div class="discount">{{this.product.discountPercentage}}%</div>
+        <img [src]="product.imageURL" [alt]="this.product.name">
     </div>
 
     <div class="colors-container flex">
-        <div class="color flex">
-            <div class="color-circle"></div>
-            <span class="color-name">Azul</span>
+        <div class="color flex" *ngFor="let color of this.product.colors" tabindex="0">
+            <div class="color-circle" [ngStyle]="{'background-color': getColorHex(color), 
+            'border-color': color === 'white' ? 'black' : getColorHex(color)}"></div>
+            <span class="color-name">{{color}}</span>
         </div>
-        <div class="color flex">
+        <!-- <div class="color flex">
             <div class="color-circle"></div>
             <span class="color-name">Verde</span>
         </div>
         <div class="color flex">
             <div class="color-circle"></div>
             <span class="color-name">Naranja</span>
-        </div>
+        </div> -->
     </div>
 
     <div class="product-bottom flex">
         <div class="stock-section">
-            <span class="stock"><span class="stock-number">12</span> in stock</span>
+            <span class="stock"><span class="stock-number">{{this.product.stock}}</span> in stock</span>
         </div>
         <div class="prices-section">
-            <span class="price">S/.78</span>
-            <span class="price-before">S/.90</span>
+            <span class="price">S/. {{this.product.price}}</span>
+            <span class="price-before">S/. {{this.product.priceFinal}}</span>
         </div>
     </div>
 

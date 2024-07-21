@@ -27,11 +27,15 @@
 }
 .color {
     align-items: center;
+    border: solid 2px transparent;
     white-space: nowrap;
     width:fit-content;
 }
+.color:focus-visible {
+    outline: var(--secondary-light) solid 2px;
+}
 .color-circle {
-    background-color: blue;
+    border: solid 1px;
     border-radius: 50%;
     height: 14px;
     margin-right: 5px;
