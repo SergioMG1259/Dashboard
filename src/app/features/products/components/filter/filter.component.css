@@ -1,0 +1,107 @@
+:host {
+    background-color: var(--primary-light);
+    border-radius: 8px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-top: 5px;
+    min-height: 200px;
+    padding: 10px;
+}
+.wrapper {
+    flex-direction: column;
+    row-gap: 10px;
+}
+.title {
+    color: var(--text-1-light);
+    font-size: 16px;
+    font-weight: 600;
+}
+.filter-section {
+    align-items: center;
+}
+.text-input {
+    color: var(--text-2-light);
+    font-size: 14px;
+}
+input {
+    -moz-appearance: textfield;
+    text-align: center;
+    width: 70px;
+}
+.separator {
+    background-color: var(--icon-color-light);
+    height: 2px;
+    margin: 0 8px;
+    width: 10px;
+}
+.left {
+    margin-left: 5px;
+}
+.right {
+    margin-right: 5px;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.checkboxs {
+    align-items: start;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+
+/* 
+.slider {
+    background-color: var(--icon-color-light);
+    border-radius: 8px;
+    height: 6px;
+    position: relative;
+    width: 100%;
+}
+.progress {
+    background-color: var(--secondary-light);
+    border-radius: 8px;
+    height: 6px;
+    left: 25%;
+    position: absolute;
+    right: 25%;
+}
+.inputs-range {
+    position: relative;
+}
+.inputs-range input {
+    background: none;
+    height: 6px;
+    pointer-events: none;
+    position: absolute;
+    top: -6px;
+    width: 100%;
+    -webkit-appearance: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+    background-color: var(--secondary-light);
+    border-radius: 50%;
+    cursor: pointer;
+    height: 20px;
+    pointer-events: auto;
+    -webkit-appearance: none;
+    width: 20px;
+}
+input[type="range"]::-moz-range-thumb {
+    background-color: var(--secondary-light);
+    border-radius: 50%;
+    cursor: pointer;
+    height: 20px;
+    pointer-events: auto;
+    -moz-appearance: none;
+    width: 20px;
+} */
+
+@media screen and (max-width : 800px){
+    :host {
+        height: 100vh;
+        margin-top: 0px;
+        width: 240px;
+    }
+}

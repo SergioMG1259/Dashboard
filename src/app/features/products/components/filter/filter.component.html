@@ -1,0 +1,34 @@
+<section cdkTrapFocus cdkTrapFocusAutoCapture="true" class="wrapper flex">
+    <p class="title">Price Range</p>
+    <div class="filter-section flex">
+        <span class="text-input">min</span>
+        <input type="number" class="primary-input left" [(ngModel)]="this.minValue">
+        <div class="separator">
+        </div>
+        <input type="number" class="primary-input right" [(ngModel)]="this.maxValue">
+        <span class="text-input">max</span>
+    </div>
+    <p class="title">Category</p>
+    <div class="flex checkboxs">
+        <app-checkbox [(value)]="this.aux">T-shirt</app-checkbox>
+        <app-checkbox>T-shirt</app-checkbox>
+        <app-checkbox>T-shirt</app-checkbox>
+        <app-checkbox>T-shirt</app-checkbox>
+    </div>
+
+    <p class="title">Sizes</p>
+    <div class="flex checkboxs">
+        <app-checkbox>S</app-checkbox>
+        <app-checkbox>M</app-checkbox>
+        <app-checkbox>L</app-checkbox>
+        <app-checkbox>XL</app-checkbox>
+    </div>
+    
+    <!-- <div class="slider">
+        <div class="progress" [style.left]="progressLeft()" [style.right]="progressRight()"></div>
+    </div>
+    <div class="inputs-range">
+        <input type="range" min="0" max="100" [(ngModel)]="minValue" (input)="_input('min')" step="1">
+        <input type="range" min="0" max="100" [(ngModel)]="maxValue" (input)="_input('max')" step="1">
+    </div> -->
+</section>

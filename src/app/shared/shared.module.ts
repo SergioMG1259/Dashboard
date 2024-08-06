@@ -8,6 +8,8 @@ import { DropdownOptionComponent } from './components/dropdown-option/dropdown-o
 import { DialogComponent } from './components/dialog/dialog.component'
 import { PortalModule } from '@angular/cdk/portal';
 import { HolaComponent } from './components/borrar/hola/hola.component';
+import { CheckboxComponent } from './components/checkbox/checkbox.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,18 +19,21 @@ import { HolaComponent } from './components/borrar/hola/hola.component';
     DropdownComponent,
     DropdownOptionComponent,
     DialogComponent,
-    HolaComponent
+    HolaComponent,
+    CheckboxComponent
   ],
   imports: [
     CommonModule,
     OverlayModule,
-    PortalModule
+    PortalModule,
+    FormsModule
   ],
   exports: [
     CardComponent,
     CardHeaderComponent,
     DropdownComponent,
-    DropdownOptionComponent
+    DropdownOptionComponent,
+    CheckboxComponent
   ]
 })
 export class SharedModule { }

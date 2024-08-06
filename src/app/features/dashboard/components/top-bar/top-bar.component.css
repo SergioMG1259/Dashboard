@@ -12,6 +12,10 @@ header {
     cursor: pointer;
     display: none;
 }
+.btn-menu:focus {
+    border-radius: 8px;
+    outline: 2px var(--secondary-light) solid;
+}
 .bx-menu {
     font-size: 26px;
 }

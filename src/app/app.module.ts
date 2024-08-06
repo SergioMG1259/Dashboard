@@ -10,6 +10,7 @@ import { LoginComponent } from './auth/pages/login/login.component';
 
 import { OverlayModule } from '@angular/cdk/overlay';
 import { DialogModule } from '@angular/cdk/dialog';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DialogModule } from '@angular/cdk/dialog';
     HttpClientModule,
     CoreModule,
     OverlayModule,
-    DialogModule
+    DialogModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
