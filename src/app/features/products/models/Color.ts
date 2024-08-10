@@ -1,9 +1,9 @@
 export const COLOR_MAP: { [key: string]: string } = {
-    blue: '#0000FF',
+    blue: '#4355DC',
     black: '#000000',
     white: '#FFFFFF',
-    gray: '#808080',
-    green: '#008000'
+    gray: '#D3D2DA',
+    green: '#75DB52'
 }
 
 export function getColorHex(colorName: string): string {

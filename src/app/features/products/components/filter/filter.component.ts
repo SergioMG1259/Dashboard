@@ -4,6 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { SelectionModel } from '@angular/cdk/collections';
 import { OptionFilter } from '../../models/OptionFilter';
 import { FilterService } from '../../services/filter.service';
+import { getColorHex } from '../../models/Color';
 
 @Component({
   selector: 'app-filter',
@@ -30,8 +31,19 @@ export class FilterComponent implements OnInit {
     { title: 'XL' },
   ]
 
-  categoryModel!: SelectionModel<OptionFilter>;
-  sizeModel!: SelectionModel<OptionFilter>;
+  colorList:OptionFilter[] = [
+    {title: 'black'},
+    {title: 'white'},
+    {title: 'blue'},
+    {title: 'green'},
+    {title: 'gray'}
+  ]
+
+  categoryModel!: SelectionModel<OptionFilter>
+  sizeModel!: SelectionModel<OptionFilter>
+  colorModel!: SelectionModel<OptionFilter>
+
+  getColorHex = getColorHex
 
   constructor(private filterSaveService:FilterSaveService,private filterService:FilterService) {
     this.minValue = this.filterSaveService.minValue
@@ -55,6 +67,11 @@ export class FilterComponent implements OnInit {
     this.filterSaveService.sizes = this.sizeModel.selected
   }
 
+  onCheckboxChangeColor(color:OptionFilter){
+    this.colorModel.toggle(color)
+    this.filterSaveService.colors = this.colorModel.selected
+  }
+
   getMatchingInstances(saved: OptionFilter[], options: OptionFilter[]): OptionFilter[] {
     return saved.map(savedItem => options.find(option => option.title === savedItem.title))
                 .filter((item): item is OptionFilter => item !== undefined);
@@ -63,8 +80,10 @@ export class FilterComponent implements OnInit {
   reset() {
     this.categoryModel.clear()
     this.sizeModel.clear()
+    this.colorModel.clear()
     this.filterSaveService.categories = this.categoryModel.selected
     this.filterSaveService.sizes = this.sizeModel.selected
+    this.filterSaveService.colors = this.colorModel.selected
   }
 
   close() {
@@ -75,11 +94,15 @@ export class FilterComponent implements OnInit {
     this.categoryModel = new SelectionModel<OptionFilter>(
       true,
       this.getMatchingInstances(this.filterSaveService.categories, this.categoryList)
-    );
+    )
     this.sizeModel = new SelectionModel<OptionFilter>(
       true,
       this.getMatchingInstances(this.filterSaveService.sizes, this.sizesList)
-    );
+    )
+    this.colorModel = new SelectionModel<OptionFilter>(
+      true,
+      this.getMatchingInstances(this.filterSaveService.colors, this.colorList)
+    )
   }
 
   // p(){return this.model.toggle()}

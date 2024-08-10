@@ -1,7 +1,13 @@
 <div class="flex">
     <div class="checkbox-wrapper">
-        <input type="checkbox" class="checkbox" [(ngModel)]="this.value" (click)="onClick()" (change)="onCheckboxChange()">
-        <i class='bx bx-check' [ngClass]="{'checked':this.value}"></i> 
+        <input type="checkbox" class="checkbox" [(ngModel)]="this.value" 
+        (click)="onClick()" 
+        (change)="onCheckboxChange()"
+        [ngClass]="{'colorful':this.colorful}" 
+        [ngStyle]="getCheckboxStyles()">
+        <i class='bx bx-check' 
+        [ngClass]="{'checked':this.value,'black-check':this.colorCode == '#FFFFFF','white-check':this.colorCode != '#FFFFFF'}">
+        </i> 
     </div>
     <span class="text-checkbox"><ng-content></ng-content></span>
 </div>

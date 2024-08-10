@@ -25,23 +25,12 @@
 
     <p class="title">Colors</p>
     <div class="colorful">
-        <app-checkbox>
-            Goldenrod
-        </app-checkbox>
-        <app-checkbox>
-            Goldenrod
-        </app-checkbox>
-        <app-checkbox>
-            Goldenrod
-        </app-checkbox>
-        <app-checkbox>
-            Goldenrod
-        </app-checkbox>
-        <app-checkbox>
-            Goldenrod
-        </app-checkbox>
-        <app-checkbox>
-            Pale Goldenrod
+        <app-checkbox *ngFor="let item of colorList"
+        [value]="this.colorModel.isSelected(item)"
+        (changeEvent)="this.onCheckboxChangeColor(item)"
+        [colorful]="true" 
+        [colorCode]="this.getColorHex(item.title)">
+            {{item.title}}
         </app-checkbox>
     </div>
     

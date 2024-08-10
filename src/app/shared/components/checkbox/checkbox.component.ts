@@ -9,6 +9,8 @@ export class CheckboxComponent implements OnInit {
 
   // value:boolean = false
   @Input() value:boolean = false
+  @Input() colorful:boolean = false
+  @Input() colorCode:string|null = null
   @Output() valueChange = new EventEmitter<boolean>()
   @Output() changeEvent = new EventEmitter<void>();
 
@@ -18,6 +20,26 @@ export class CheckboxComponent implements OnInit {
 
   onCheckboxChange() {
     this.changeEvent.emit();
+  }
+
+  getCheckboxStyles() {
+    let style = {}
+    if (this.colorful) {
+      if(this.colorCode == '#FFFFFF') {
+        style = {
+          'background-color': this.colorCode,
+          'border-color': '#000000'
+        }
+      }
+      else {
+        style = {
+          'background-color': this.colorCode,
+          'border-color': this.colorCode
+        }
+      }
+      return style
+    }
+    return {};
   }
 
   ngOnInit(): void {
