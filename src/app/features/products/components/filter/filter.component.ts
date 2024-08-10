@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FilterSaveService } from '../../services/filter-save.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { SelectionModel } from '@angular/cdk/collections';
+import { OptionFilter } from '../../models/OptionFilter';
+import { FilterService } from '../../services/filter.service';
 
 @Component({
   selector: 'app-filter',
@@ -7,12 +12,77 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilterComponent implements OnInit {
 
-  minValue:number = 10
-  maxValue:number = 90
-  aux:boolean = false
+  minValue:number|null = 10
+  maxValue:number|null = 90
 
-  constructor() {}
+  categoryList:OptionFilter[] = [
+    { title: 'T-shirt' },
+    { title: 'Shirt' },
+    { title: 'Sweater' },
+    { title: 'Hoodie' },
+    { title: 'Blazer' },
+  ];
 
+  sizesList:OptionFilter[] = [
+    { title: 'S' },
+    { title: 'M' },
+    { title: 'L' },
+    { title: 'XL' },
+  ]
+
+  categoryModel!: SelectionModel<OptionFilter>;
+  sizeModel!: SelectionModel<OptionFilter>;
+
+  constructor(private filterSaveService:FilterSaveService,private filterService:FilterService) {
+    this.minValue = this.filterSaveService.minValue
+    this.maxValue = this.filterSaveService.maxValue
+  }
+
+  saveMinValue() {
+    this.filterSaveService.minValue = this.minValue!
+  }
+  saveMaxValue() {
+    this.filterSaveService.maxValue = this.maxValue!
+  }
+
+  onCheckboxChangeCategory(category:OptionFilter){
+    this.categoryModel.toggle(category)
+    this.filterSaveService.categories = this.categoryModel.selected
+  }
+
+  onCheckboxChangeSize(size:OptionFilter){
+    this.sizeModel.toggle(size)
+    this.filterSaveService.sizes = this.sizeModel.selected
+  }
+
+  getMatchingInstances(saved: OptionFilter[], options: OptionFilter[]): OptionFilter[] {
+    return saved.map(savedItem => options.find(option => option.title === savedItem.title))
+                .filter((item): item is OptionFilter => item !== undefined);
+  }
+
+  reset() {
+    this.categoryModel.clear()
+    this.sizeModel.clear()
+    this.filterSaveService.categories = this.categoryModel.selected
+    this.filterSaveService.sizes = this.sizeModel.selected
+  }
+
+  close() {
+    this.filterService.closeFilter()
+  }
+
+  ngOnInit(): void {
+    this.categoryModel = new SelectionModel<OptionFilter>(
+      true,
+      this.getMatchingInstances(this.filterSaveService.categories, this.categoryList)
+    );
+    this.sizeModel = new SelectionModel<OptionFilter>(
+      true,
+      this.getMatchingInstances(this.filterSaveService.sizes, this.sizesList)
+    );
+  }
+
+  // p(){return this.model.toggle()}
   // _input(input:string) {
   //   let priceGap = 10
   //   console.log(this.minValue + ' - '+ this.maxValue)
@@ -53,8 +123,4 @@ export class FilterComponent implements OnInit {
   //   }
   //   return 0 + '%'
   // }
-
-  ngOnInit(): void {
-  }
-
 }

@@ -1,6 +1,6 @@
-<div class="inputs-slider flex">
-    <div class="checkbox-wrapper flex">
-        <input type="checkbox" class="checkbox" [(ngModel)]="this.value" (click)="onClick()">
+<div class="flex">
+    <div class="checkbox-wrapper">
+        <input type="checkbox" class="checkbox" [(ngModel)]="this.value" (click)="onClick()" (change)="onCheckboxChange()">
         <i class='bx bx-check' [ngClass]="{'checked':this.value}"></i> 
     </div>
     <span class="text-checkbox"><ng-content></ng-content></span>

@@ -17,6 +17,7 @@
     --secondary-light: rgb(38, 116, 243);
     --secondary-light-hover: rgb(39, 109, 223);
     --secondary-light-active: rgb(28, 90, 189);
+    
     --text-1-light: rgb(18, 18, 18);
     --text-2-light: #616161;
     --text-3-light: rgb(243, 243, 243);
@@ -24,7 +25,9 @@
     --hover-primary-light: rgb(220, 220, 220);
     --active-primary-light: rgb(208, 208, 208);
     --hover-secondary-light: #f0f0f0;
-    --active-secondary-light: rgb(226, 226, 226)
+    --active-secondary-light: rgb(226, 226, 226);
+    --hover-tertiary-light: rgb(230, 238, 252);
+    --active-tertiary-light: rgb(212, 222, 238);
 }
 .flex {
     display: flex;
@@ -78,7 +81,7 @@ button {
     color: var(--icon-color-light);
     font-size: 14px;
     padding: 8px 15px;
-    transition: 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 .secondary-button:hover {
     background-color: var(--hover-secondary-light);
@@ -89,8 +92,30 @@ button {
 .secondary-button:focus-visible {
     border: solid 1px var(--primary-light);
     outline: 2px solid var(--secondary-light);
-    transition: none;
+    /* transition: none; */
     /* background-color: var(--secondary-light-active); */
+}
+
+.tertiary-button {
+    background-color: transparent;
+    border: solid 1px transparent;
+    border-radius: 8px;
+    color: var(--secondary-light);
+    font-size: 14px;
+    padding: 8px 15px;
+    transition: background-color 0.3s ease;
+}
+.tertiary-button:hover {
+    background-color: var(--hover-tertiary-light);
+    /* border: solid 1px var(--hover-tertiary-light); */
+}
+.tertiary-button:active {
+    background-color: var(--active-tertiary-light);
+    /* border: solid 1px var(--active-tertiary-light); */
+}
+.tertiary-button:focus-visible {
+    border: solid 1px var(--primary-light);
+    outline: 2px solid var(--secondary-light);
 }
 
 

@@ -2,28 +2,53 @@
     <p class="title">Price Range</p>
     <div class="filter-section flex">
         <span class="text-input">min</span>
-        <input type="number" class="primary-input left" [(ngModel)]="this.minValue">
+        <input type="number" class="primary-input left" [(ngModel)]="this.minValue" (input)="this.saveMinValue()">
         <div class="separator">
         </div>
-        <input type="number" class="primary-input right" [(ngModel)]="this.maxValue">
+        <input type="number" class="primary-input right" [(ngModel)]="this.maxValue" (input)="this.saveMaxValue()">
         <span class="text-input">max</span>
     </div>
+
     <p class="title">Category</p>
     <div class="flex checkboxs">
-        <app-checkbox [(value)]="this.aux">T-shirt</app-checkbox>
-        <app-checkbox>T-shirt</app-checkbox>
-        <app-checkbox>T-shirt</app-checkbox>
-        <app-checkbox>T-shirt</app-checkbox>
+        <app-checkbox *ngFor="let item of categoryList" [value]="this.categoryModel.isSelected(item)" (changeEvent)="this.onCheckboxChangeCategory(item)">
+            {{item.title}}
+        </app-checkbox>
     </div>
 
     <p class="title">Sizes</p>
     <div class="flex checkboxs">
-        <app-checkbox>S</app-checkbox>
-        <app-checkbox>M</app-checkbox>
-        <app-checkbox>L</app-checkbox>
-        <app-checkbox>XL</app-checkbox>
+        <app-checkbox *ngFor="let item of sizesList" [value]="this.sizeModel.isSelected(item)" (changeEvent)="this.onCheckboxChangeSize(item)">
+            {{item.title}}
+        </app-checkbox>
+    </div>
+
+    <p class="title">Colors</p>
+    <div class="colorful">
+        <app-checkbox>
+            Goldenrod
+        </app-checkbox>
+        <app-checkbox>
+            Goldenrod
+        </app-checkbox>
+        <app-checkbox>
+            Goldenrod
+        </app-checkbox>
+        <app-checkbox>
+            Goldenrod
+        </app-checkbox>
+        <app-checkbox>
+            Goldenrod
+        </app-checkbox>
+        <app-checkbox>
+            Pale Goldenrod
+        </app-checkbox>
     </div>
     
+    <div class="buttons flex">
+        <button class="tertiary-button" (click)="this.reset()">Reset</button>
+        <button class="primary-button" (click)="this.close()">Apply</button>
+    </div>
     <!-- <div class="slider">
         <div class="progress" [style.left]="progressLeft()" [style.right]="progressRight()"></div>
     </div>

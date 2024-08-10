@@ -9,7 +9,7 @@
     cursor: pointer;
     height: 20px;
     outline: solid 2px transparent;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease;
     width: 20px;
 }
 .checkbox:checked {
@@ -35,7 +35,7 @@
     right: 0px;
     text-align: center;
     top: 0px;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.2s ease;
     width: 20px;
 }
 .checked {

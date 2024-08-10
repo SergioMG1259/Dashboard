@@ -21,7 +21,7 @@ import { A11yModule } from '@angular/cdk/a11y';
     ProductsRoutingModule,
     SharedModule,
     FormsModule,
-    A11yModule
+    A11yModule,
   ]
 })
 export class ProductsModule { }
