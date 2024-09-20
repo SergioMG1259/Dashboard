@@ -3,9 +3,9 @@
     border-radius: 8px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     margin-top: 5px;
-    min-height: 200px;
-    padding: 10px;
-}
+    max-height: 550px;
+    overflow-y: auto;
+    padding: 10px;}
 .wrapper {
     flex-direction: column;
     row-gap: 10px;
@@ -23,8 +23,6 @@
     font-size: 14px;
 }
 input {
-    -moz-appearance: textfield;
-    text-align: center;
     width: 70px;
 }
 .separator {
@@ -39,21 +37,16 @@ input {
 .right {
     margin-right: 5px;
 }
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-
 .checkboxs {
     align-items: start;
     flex-direction: column;
-    row-gap: 10px;
+    row-gap: 8px;
 }
 
 .colorful {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 8px;
 }
 
 .buttons {
@@ -110,7 +103,7 @@ input[type="range"]::-moz-range-thumb {
 
 @media screen and (max-width : 800px){
     :host {
-        height: 100vh;
+        min-height: 100vh;
         margin-top: 0px;
         width: 240px;
     }

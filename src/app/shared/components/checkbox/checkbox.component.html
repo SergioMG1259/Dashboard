@@ -5,9 +5,9 @@
         (change)="onCheckboxChange()"
         [ngClass]="{'colorful':this.colorful}" 
         [ngStyle]="getCheckboxStyles()">
-        <i class='bx bx-check' 
-        [ngClass]="{'checked':this.value,'black-check':this.colorCode == '#FFFFFF','white-check':this.colorCode != '#FFFFFF'}">
-        </i> 
+            <i class='bx bx-check' 
+            [ngClass]="{'checked':this.value,'black-check':this.colorCode == '#FFFFFF','white-check':this.colorCode != '#FFFFFF'}">
+            </i> 
     </div>
     <span class="text-checkbox"><ng-content></ng-content></span>
 </div>

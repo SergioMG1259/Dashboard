@@ -35,6 +35,9 @@
 .shadow {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+textarea {
+    resize: none;
+}
 button {
     align-items: center;
     cursor: pointer;
@@ -135,6 +138,14 @@ button {
     /* border: solid 1px var(--secondary-light); */
     border: solid 1px var(--primary-light);
     outline: 2px solid var(--secondary-light);
+}
+.input-number {
+    -moz-appearance: textfield;
+    text-align: center;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }
 
 /* .cdk-overlay-dark-backdrop {

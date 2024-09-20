@@ -2,24 +2,24 @@
     <p class="title">Price Range</p>
     <div class="filter-section flex">
         <span class="text-input">min</span>
-        <input type="number" class="primary-input left" [(ngModel)]="this.minValue" (input)="this.saveMinValue()">
+        <input type="number" class="primary-input input-number left" [(ngModel)]="this.minValue" (input)="this.saveMinValue()">
         <div class="separator">
         </div>
-        <input type="number" class="primary-input right" [(ngModel)]="this.maxValue" (input)="this.saveMaxValue()">
+        <input type="number" class="primary-input input-number right" [(ngModel)]="this.maxValue" (input)="this.saveMaxValue()">
         <span class="text-input">max</span>
     </div>
 
     <p class="title">Category</p>
     <div class="flex checkboxs">
         <app-checkbox *ngFor="let item of categoryList" [value]="this.categoryModel.isSelected(item)" (changeEvent)="this.onCheckboxChangeCategory(item)">
-            {{item.title}}
+            {{item}}
         </app-checkbox>
     </div>
 
     <p class="title">Sizes</p>
     <div class="flex checkboxs">
         <app-checkbox *ngFor="let item of sizesList" [value]="this.sizeModel.isSelected(item)" (changeEvent)="this.onCheckboxChangeSize(item)">
-            {{item.title}}
+            {{item}}
         </app-checkbox>
     </div>
 
@@ -29,8 +29,8 @@
         [value]="this.colorModel.isSelected(item)"
         (changeEvent)="this.onCheckboxChangeColor(item)"
         [colorful]="true" 
-        [colorCode]="this.getColorHex(item.title)">
-            {{item.title}}
+        [colorCode]="this.getColorHex(item)">
+            {{item}}
         </app-checkbox>
     </div>
     

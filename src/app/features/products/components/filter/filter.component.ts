@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FilterSaveService } from '../../services/filter-save.service';
-import { FormControl, FormGroup } from '@angular/forms';
 import { SelectionModel } from '@angular/cdk/collections';
-import { OptionFilter } from '../../models/OptionFilter';
 import { FilterService } from '../../services/filter.service';
 import { getColorHex } from '../../models/Color';
+import { Categories } from 'src/app/core/enums/Categories';
+import { Sizes } from 'src/app/core/enums/Sizes';
+import { Colors } from 'src/app/core/enums/Colors';
 
 @Component({
   selector: 'app-filter',
@@ -13,35 +14,42 @@ import { getColorHex } from '../../models/Color';
 })
 export class FilterComponent implements OnInit {
 
+  minValueOrigin:number = 10
+  maxValueOrigin:number = 90
+
   minValue:number|null = 10
   maxValue:number|null = 90
 
-  categoryList:OptionFilter[] = [
-    { title: 'T-shirt' },
-    { title: 'Shirt' },
-    { title: 'Sweater' },
-    { title: 'Hoodie' },
-    { title: 'Blazer' },
-  ];
+  // categoryList:OptionFilter[] = [
+  //   { title: 'T-shirt' },
+  //   { title: 'Shirt' },
+  //   { title: 'Sweater' },
+  //   { title: 'Hoodie' },
+  //   { title: 'Blazer' },
+  // ];
 
-  sizesList:OptionFilter[] = [
-    { title: 'S' },
-    { title: 'M' },
-    { title: 'L' },
-    { title: 'XL' },
-  ]
+  categoryList = Object.values(Categories)
 
-  colorList:OptionFilter[] = [
-    {title: 'black'},
-    {title: 'white'},
-    {title: 'blue'},
-    {title: 'green'},
-    {title: 'gray'}
-  ]
+  // sizesList:OptionFilter[] = [
+  //   { title: 'S' },
+  //   { title: 'M' },
+  //   { title: 'L' },
+  //   { title: 'XL' },
+  // ]
+  sizesList = Object.values(Sizes)
 
-  categoryModel!: SelectionModel<OptionFilter>
-  sizeModel!: SelectionModel<OptionFilter>
-  colorModel!: SelectionModel<OptionFilter>
+  // colorList:OptionFilter[] = [
+  //   {title: 'black'},
+  //   {title: 'white'},
+  //   {title: 'blue'},
+  //   {title: 'green'},
+  //   {title: 'gray'}
+  // ]
+  colorList = Object.values(Colors)
+
+  categoryModel!: SelectionModel<Categories>
+  sizeModel!: SelectionModel<Sizes>
+  colorModel!: SelectionModel<Colors>
 
   getColorHex = getColorHex
 
@@ -57,24 +65,24 @@ export class FilterComponent implements OnInit {
     this.filterSaveService.maxValue = this.maxValue!
   }
 
-  onCheckboxChangeCategory(category:OptionFilter){
+  onCheckboxChangeCategory(category:Categories){
     this.categoryModel.toggle(category)
     this.filterSaveService.categories = this.categoryModel.selected
   }
 
-  onCheckboxChangeSize(size:OptionFilter){
+  onCheckboxChangeSize(size:Sizes){
     this.sizeModel.toggle(size)
     this.filterSaveService.sizes = this.sizeModel.selected
   }
 
-  onCheckboxChangeColor(color:OptionFilter){
+  onCheckboxChangeColor(color:Colors){
     this.colorModel.toggle(color)
     this.filterSaveService.colors = this.colorModel.selected
   }
 
-  getMatchingInstances(saved: OptionFilter[], options: OptionFilter[]): OptionFilter[] {
-    return saved.map(savedItem => options.find(option => option.title === savedItem.title))
-                .filter((item): item is OptionFilter => item !== undefined);
+  getMatchingInstances(saved: any[], options: any[]): any[] {
+    return saved.map(savedItem => options.find(option => option === savedItem))
+                .filter((item) => item !== undefined);
   }
 
   reset() {
@@ -84,6 +92,10 @@ export class FilterComponent implements OnInit {
     this.filterSaveService.categories = this.categoryModel.selected
     this.filterSaveService.sizes = this.sizeModel.selected
     this.filterSaveService.colors = this.colorModel.selected
+    this.minValue = this.minValueOrigin
+    this.maxValue = this.maxValueOrigin
+    this.filterSaveService.minValue = this.minValueOrigin
+    this.filterSaveService.maxValue = this.maxValueOrigin
   }
 
   close() {
@@ -91,59 +103,17 @@ export class FilterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.categoryModel = new SelectionModel<OptionFilter>(
+    this.categoryModel = new SelectionModel<Categories>(
       true,
       this.getMatchingInstances(this.filterSaveService.categories, this.categoryList)
     )
-    this.sizeModel = new SelectionModel<OptionFilter>(
+    this.sizeModel = new SelectionModel<Sizes>(
       true,
       this.getMatchingInstances(this.filterSaveService.sizes, this.sizesList)
     )
-    this.colorModel = new SelectionModel<OptionFilter>(
+    this.colorModel = new SelectionModel<Colors>(
       true,
       this.getMatchingInstances(this.filterSaveService.colors, this.colorList)
     )
   }
-
-  // p(){return this.model.toggle()}
-  // _input(input:string) {
-  //   let priceGap = 10
-  //   console.log(this.minValue + ' - '+ this.maxValue)
-  //   if((this.maxValue - this.minValue <= priceGap) && this.maxValue <= 100) {
-  //     if(input == 'max') {
-  //       if(this.minValue > 0) {
-  //         if(this.minValue > priceGap) {
-  //           this.minValue = this.maxValue - priceGap
-  //         }else {
-  //           this.minValue = 0
-  //         }
-          
-          
-  //       }  
-  //     }
-  //     else {
-  //       if(this.maxValue < 100 - priceGap) {
-  //         this.maxValue = this.minValue + priceGap
-          
-  //       }else {
-  //         this.maxValue = 100
-  //       }
-          
-  //     }
-  //   }
-  // }
-
-  // progressLeft():string {
-  //   if (this.minValue >= 0) {
-  //     return (this.minValue/100)*100 + '%'
-  //   }
-  //   return 0 + '%'
-  // }
-
-  // progressRight():string {
-  //   if(this.maxValue <= 100) {
-  //     return 100-(this.maxValue/100)*100 + '%'
-  //   }
-  //   return 0 + '%'
-  // }
 }

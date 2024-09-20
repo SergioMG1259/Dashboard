@@ -1,0 +1,75 @@
+<section class="container flex">
+    <div class="left flex">
+        <app-card class="card">
+            <app-card-header>
+                <h2 class="card-component-title">General Information</h2>
+            </app-card-header>
+            <section class="flex section">
+                <div class="flex field">
+                    <label for="product-name" class="label">Product Name</label>
+                    <input type="text" class="primary-input" id="product-name">        
+                </div>
+                <div class="flex field">
+                    <label for="product-description" class="label">Product Description</label>
+                    <textarea type="text" class="primary-input" id="product-description"></textarea>        
+                </div>
+                <div class="flex two-column">
+                    <div class="flex field category">
+                        <label for="category" class="label">Category</label>
+                        <app-dropdown placeholder="Category" [value]="this.category" id="category">
+                            <app-dropdown-option *ngFor="let item of categories" [value]="item">{{item}}</app-dropdown-option>
+                        </app-dropdown>    
+                    </div>
+                    <div class="flex field">
+                        <label class="label">Size</label>
+                        <div class="flex checkbox-row">
+                            <app-checkbox *ngFor="let size of sizes">{{size}}</app-checkbox>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex field">
+                    <label class="label">Gender</label>
+                    <fieldset class="radio-group">
+                        <div class="radio-field">
+                            <input type="radio" class="radio" value="1" name="contact" [(ngModel)]="aux">
+                            <label>Man</label>
+                        </div>
+                        <div class="radio-field">
+                            <input type="radio" class="radio" value="2" name="contact" [(ngModel)]="aux">
+                            <label>Woman</label>
+                        </div>
+                        <div class="radio-field">
+                            <input type="radio" class="radio" value="3" name="contact" [(ngModel)]="aux">
+                            <label>Unisex</label>
+                        </div>
+                    </fieldset>
+                </div>
+            </section>
+        </app-card>
+        <app-card>
+            <app-card-header>
+                <h2 class="card-component-title">Pricing and stock</h2>
+            </app-card-header>
+            <section class="flex section">
+                <div class="pricing">
+                    <div class="flex field base-pricing">
+                        <label for="base-pricing" class="label">Base pricing (S/)</label>
+                        <input type="number" class="primary-input" id="base-pricing">        
+                    </div>
+                    <div class="flex field base-pricing">
+                        <label for="stock" class="label">Stock</label>
+                        <input type="number" class="primary-input" id="stock">        
+                    </div>
+                    <div class="flex field base-pricing">
+                        <label for="discount" class="label">Discount (%)</label>
+                        <input type="number" class="primary-input" id="discount">        
+                    </div>
+                </div>
+
+
+            </section>
+        </app-card>
+    </div>
+    <div class="right"></div>
+</section>
+
